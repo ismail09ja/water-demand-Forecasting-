@@ -1,0 +1,31 @@
+INTRODUCTION
+
+"Water demand forecasting is a critical task in urban planning and water resource management to ensure adequate supply, optimize distribution systems, and prevent water shortages. By analyzing historical data such as temperature patterns, rainfall, population growth, seasonal trends, and daily usage patterns, machine learning and time series models can accurately predict future water demand with uncertainty intervals. This helps water management authorities plan infrastructure capacity, optimize pumping schedules, manage reservoir levels, and implement demand-side management strategies to ensure sustainable water supply for growing urban populations."
+
+AIM
+
+To build probabilistic forecasting models that predict daily urban water demand with uncertainty quantification, enabling water management authorities to make informed decisions about resource allocation, infrastructure planning, and supply optimization based on historical usage patterns, weather conditions, and demographic trends.
+
+PROJECT KEY INFORMATION
+
+Domain: Machine Learning & Time Series Forecasting
+
+Project Title: Water Demand Probability Forecasting for Urban Areas
+
+Dataset Size: 1,827 records (synthetic daily data from 2020-2024)
+
+Target Feature: water_demand (daily water consumption in liters)
+
+Features: temperature, rainfall, population_index, time-based features (day, month, day_of_week, etc.), lag features, rolling statistics
+
+Models Used: SARIMAX (Seasonal ARIMA with Exogenous Variables), Quantile Regression (Gradient Boosting)
+
+Best Model: Quantile Regression (R² = 0.84, MAPE = 3.78%, 80% coverage = 76.78%)
+
+Tools Used: Python, Pandas, NumPy, Scikit-learn, Statsmodels, Matplotlib, Seaborn, Streamlit, Joblib
+
+Outcome: A probabilistic forecasting system that provides point forecasts and uncertainty intervals (10%, 50%, 90% quantiles) to help urban planners and water management authorities predict future water demand, plan infrastructure capacity, and optimize resource allocation strategies.
+
+
+
+

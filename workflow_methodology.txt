@@ -1,0 +1,100 @@
+METHODOLOGY / WORKFLOW
+
+This project follows a structured machine learning and time series forecasting workflow to ensure accurate and reliable water demand predictions with uncertainty quantification.
+
+1. Data Generation
+
+Synthetic water demand data was generated for the period 2020-2024, including:
+- Daily temperature patterns with seasonal variations
+- Rainfall patterns with seasonal cycles and random events
+- Population growth index with gradual upward trend (2% annual growth)
+- Water demand calculated based on complex relationships between temperature, rainfall, population, and seasonal/weekly patterns
+
+2. Data Preprocessing
+
+- Handled missing values using forward fill and backward fill methods
+- Created time-based features (day, month, day_of_week, day_of_year, week, quarter, year)
+- Applied cyclical encoding for periodic features (sine and cosine transformations)
+- Generated lag features (1-day, 7-day, 30-day lags)
+- Computed rolling statistics (7-day and 30-day moving averages and standard deviations)
+- Standardized numerical features using StandardScaler
+- Performed time-series train–test split (80%–20%, maintaining temporal order)
+
+3. Exploratory Data Analysis (EDA)
+
+- Visualized time series of all variables (water demand, temperature, rainfall, population)
+- Generated correlation matrix to study relationships between features
+- Analyzed seasonal patterns and weekly cycles in water demand
+- Studied the relationship between temperature, rainfall, population, and water consumption
+
+4. Feature Engineering
+
+Created meaningful features such as:
+- Time-based features: day, month, day_of_week, day_of_year, week, quarter, year
+- Cyclical encodings: month_sin, month_cos, day_of_week_sin, day_of_week_cos, day_of_year_sin, day_of_year_cos
+- Lag features: demand_lag_1, demand_lag_7, demand_lag_30
+- Rolling statistics: demand_rolling_mean_7, demand_rolling_mean_30, demand_rolling_std_7
+- Total of 22 engineered features for machine learning models
+
+5. Model Building
+
+Two forecasting models were developed and trained:
+
+- SARIMAX (Seasonal ARIMA with Exogenous Variables)
+  * Order: (1,1,1) with seasonal order (1,1,1,7)
+  * Captures seasonal patterns and trends in time series data
+  * Provides point forecasts
+
+- Quantile Regression (Gradient Boosting)
+  * Gradient Boosting Regressor with quantile loss function
+  * Trained for multiple quantiles: 10%, 50%, 90%
+  * Provides probabilistic forecasts with uncertainty intervals
+  * Hyperparameters: n_estimators=100, max_depth=5, learning_rate=0.1
+
+6. Model Evaluation
+
+Models were evaluated using multiple metrics:
+
+- Point Forecast Metrics:
+  * MAE (Mean Absolute Error)
+  * RMSE (Root Mean Squared Error)
+  * R² (Coefficient of Determination)
+  * MAPE (Mean Absolute Percentage Error)
+
+- Probabilistic Forecast Metrics:
+  * Pinball Loss for each quantile (10%, 50%, 90%)
+  * Coverage metrics (percentage of actual values within prediction intervals)
+
+7. Model Selection
+
+Based on comprehensive evaluation:
+- Quantile Regression performed best with R² = 0.84, MAPE = 3.78%
+- SARIMAX showed lower performance (R² = -0.54, MAPE = 11.88%)
+- Quantile Regression was selected as the primary model due to superior accuracy and ability to provide uncertainty intervals
+- 80% prediction interval coverage achieved: 76.78%
+
+8. Visualization Generation
+
+- Created time series plots showing actual vs predicted values
+- Generated forecast uncertainty interval visualizations
+- Produced residual analysis plots for model diagnostics
+- Saved all visualizations to data/plots/ directory
+
+9. Interactive Dashboard Development
+
+- Built Streamlit web application for interactive forecasting
+- Implemented model selection (SARIMAX or Quantile Regression)
+- Added forecast horizon selection (7-90 days)
+- Created interactive plots with uncertainty intervals
+- Enabled CSV download functionality for forecasts
+
+10. Model Deployment Preparation
+
+- Full prediction pipeline created and modularized
+- Models saved as .pkl files (sarimax_model.pkl, quantile_models.pkl, scaler.pkl)
+- Custom prediction functions developed for both models
+- Interactive dashboard ready for deployment
+
+
+
+

@@ -1,0 +1,68 @@
+DATASET DESCRIPTION
+
+The dataset used in this project consists of 1,827 synthetic records representing daily water demand data for an urban area from 2020-01-01 to 2024-12-31. Each record contains details about environmental conditions, demographic factors, time-based features, and historical demand patterns that influence daily water consumption.
+
+This dataset reflects real-world patterns of water demand including seasonal variations, weekly cycles, weather impacts, and population growth trends, making it suitable for building accurate forecasting models.
+
+Feature Name                    Description
+
+date                            Daily date (2020-01-01 to 2024-12-31)
+
+temperature                     Daily temperature in Celsius (seasonal pattern with noise)
+
+rainfall                        Daily rainfall in millimeters (seasonal pattern with random events)
+
+population_index                Population growth index (gradual upward trend with 2% annual growth)
+
+water_demand                    Daily water demand in liters (Target Variable)
+
+day                             Day of the month (1-31)
+
+month                           Month of the year (1-12)
+
+day_of_week                     Day of week (0=Monday, 6=Sunday)
+
+day_of_year                     Day of year (1-365/366)
+
+week                            Week number of the year
+
+quarter                         Quarter of the year (1-4)
+
+year                            Year (2020-2024)
+
+month_sin                       Cyclical encoding of month (sine component)
+
+month_cos                       Cyclical encoding of month (cosine component)
+
+day_of_week_sin                 Cyclical encoding of day of week (sine component)
+
+day_of_week_cos                 Cyclical encoding of day of week (cosine component)
+
+day_of_year_sin                 Cyclical encoding of day of year (sine component)
+
+day_of_year_cos                 Cyclical encoding of day of year (cosine component)
+
+demand_lag_1                    Water demand from 1 day ago
+
+demand_lag_7                    Water demand from 7 days ago (weekly pattern)
+
+demand_lag_30                   Water demand from 30 days ago (monthly pattern)
+
+demand_rolling_mean_7           Rolling average of water demand over 7 days
+
+demand_rolling_mean_30          Rolling average of water demand over 30 days
+
+demand_rolling_std_7            Rolling standard deviation of water demand over 7 days
+
+Target Variable
+
+water_demand → Continuous numerical value representing daily water consumption in liters
+
+This is a time series regression problem.
+
+The project aims to forecast future daily water demand based on historical patterns, weather conditions, and demographic trends.
+
+Using machine learning and time series models, the system analyzes temperature, rainfall, population growth, seasonal patterns, weekly cycles, and historical demand to predict future water consumption.
+
+The output helps water management authorities plan infrastructure capacity, optimize distribution systems, and implement demand-side management strategies to ensure sustainable water supply.
+

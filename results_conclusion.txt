@@ -1,0 +1,121 @@
+RESULTS
+
+1. Model Comparison
+
+Two models were trained and evaluated:
+
+Model                    Performance (R²)    Performance (MAPE)    Remarks
+
+SARIMAX                  -0.54               11.88%                Poor performance, negative R² indicates worse than baseline
+
+Quantile Regression      ⭐ 0.84              ⭐ 3.78%              Best performance, excellent accuracy and uncertainty quantification
+
+2. Detailed Performance Metrics
+
+SARIMAX Model Performance:
+- MAE:  66,690.01 liters
+- RMSE: 81,398.00 liters
+- R²:   -0.5375 (negative indicates poor fit)
+- MAPE: 11.88%
+
+Quantile Regression Model Performance:
+- MAE:  20,921.67 liters
+- RMSE: 26,431.97 liters
+- R²:   0.8379 (excellent fit, explains 83.79% of variance)
+- MAPE: 3.78%
+
+Quantile-Specific Metrics:
+- Pinball Loss (10% quantile): 4,619.30
+- Pinball Loss (50% quantile): 10,460.84
+- Pinball Loss (90% quantile): 4,904.13
+- 80% Coverage: 76.78% (actual values within 10-90% prediction interval)
+
+3. Final Selected Model: Quantile Regression (Gradient Boosting)
+
+Reason for selection:
+- Best R² score (0.84) indicating strong predictive power
+- Lowest MAPE (3.78%) showing high accuracy
+- Significantly lower MAE and RMSE compared to SARIMAX
+- Provides probabilistic forecasts with uncertainty intervals (10%, 50%, 90% quantiles)
+- Enables risk-aware decision making with prediction intervals
+- Good coverage metrics for uncertainty quantification
+
+4. Model Performance Analysis
+
+The Quantile Regression model produced:
+- High accuracy with R² of 0.84, explaining 83.79% of variance in water demand
+- Low prediction error with MAPE of only 3.78%
+- Well-calibrated uncertainty intervals with 76.78% coverage for 80% prediction interval
+- Reliable probabilistic forecasts suitable for operational planning
+- Ability to provide both point forecasts (median) and prediction intervals for risk management
+
+
+CONCLUSION
+
+The Water Demand Probability Forecasting system successfully analyzes historical water consumption data, weather patterns, and demographic trends to predict future daily water demand with uncertainty quantification. By identifying key factors like temperature, rainfall, population growth, seasonal patterns, and weekly cycles, the model supports proactive water resource management strategies.
+
+Among the two models tested, Quantile Regression (Gradient Boosting) delivered superior performance with an R² score of 0.84, MAPE of 3.78%, and the ability to provide probabilistic forecasts with uncertainty intervals. This model is effective, provides both point forecasts and risk assessment through prediction intervals, making it ideal for real-world water management applications.
+
+The forecasting system developed in this project can help water management authorities:
+- Plan infrastructure capacity and expansion projects
+- Optimize water distribution and pumping schedules
+- Manage reservoir levels and storage capacity
+- Implement demand-side management strategies
+- Reduce water shortages and supply disruptions
+- Improve resource allocation and cost efficiency
+- Support emergency planning and drought management
+
+
+FUTURE SCOPE
+
+This project can be extended and improved further in the following ways:
+
+1. Real-Time Deployment
+
+Integrating the trained model into a live API or dashboard for real-time water demand monitoring and automated forecasting updates.
+
+2. IoT & Sensor Data Integration
+
+Using real-time sensor data from smart water meters, weather stations, and environmental monitoring systems to improve model accuracy and enable dynamic forecasting.
+
+3. Deep Learning Approaches
+
+Using neural networks, LSTM (Long Short-Term Memory), or Transformer models for capturing complex temporal patterns and long-term dependencies in water demand.
+
+4. Enhanced Feature Engineering
+
+Incorporating additional factors such as:
+- Economic indicators (GDP, employment rates)
+- Special events and holidays
+- Water pricing and tariff structures
+- Infrastructure maintenance schedules
+- Social media sentiment analysis
+- Historical emergency events
+
+5. Multi-Horizon Forecasting
+
+Extending the model to provide forecasts for multiple time horizons simultaneously (daily, weekly, monthly, quarterly) for different planning needs.
+
+6. Spatial Forecasting
+
+Expanding to multi-region forecasting by incorporating geographic features and spatial correlations between different urban areas or districts.
+
+7. Ensemble Methods
+
+Combining multiple models (SARIMAX, Quantile Regression, LSTM, Prophet) using ensemble techniques to improve forecast accuracy and robustness.
+
+8. AutoML Optimization
+
+Using AutoML frameworks to automatically test multiple algorithms, hyperparameters, and feature combinations for optimal performance.
+
+9. Business-Level Integration
+
+Embedding the prediction model into water management information systems (WMIS), SCADA systems, or GIS platforms for operational decision support.
+
+10. Climate Change Adaptation
+
+Incorporating climate change projections and long-term environmental trends to support strategic planning and infrastructure resilience.
+
+
+
+

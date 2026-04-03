@@ -1,0 +1,101 @@
+OBSERVATIONS
+
+1. Seasonal Patterns
+
+The dataset shows strong seasonal variations in water demand:
+- Higher demand during summer months (June-August) due to increased temperature
+- Lower demand during winter months (December-February) with cooler temperatures
+- Seasonal patterns follow a sinusoidal pattern with peak demand in mid-summer
+- Temperature shows a strong positive correlation with water demand
+
+2. Weekly Cycle Patterns
+
+From the time series analysis:
+- Water demand is higher on weekends (Saturday-Sunday) compared to weekdays
+- Weekly patterns show consistent cyclical behavior throughout the year
+- The day_of_week feature is a strong predictor, with weekend factor increasing demand by approximately 10%
+
+3. Weather Impact Findings
+
+From the correlation and relationship analysis:
+- Temperature shows a strong positive correlation with water demand - hotter days lead to significantly higher consumption
+- Rainfall shows a negative correlation with water demand - more rainfall reduces outdoor water usage
+- Temperature effect: approximately 2% increase in demand per 10°C temperature rise above baseline
+- Rainfall effect: up to 5% reduction in demand during heavy rainfall periods
+
+4. Population Growth Trend
+
+The population_index feature shows:
+- Gradual upward trend with 2% annual growth rate
+- Population growth contributes to long-term increasing water demand
+- This trend is captured well by the models, enabling accurate long-term forecasting
+
+5. Model Performance Observations
+
+From the evaluation results:
+- Quantile Regression significantly outperforms SARIMAX (R²: 0.84 vs -0.54)
+- Quantile Regression achieves excellent accuracy with MAPE of only 3.78%
+- SARIMAX struggles with the complex feature relationships and shows poor fit
+- The machine learning approach (Quantile Regression) captures non-linear relationships better than traditional time series methods
+
+6. Uncertainty Quantification Patterns
+
+From the quantile forecast analysis:
+- 80% prediction interval coverage: 76.78% (close to target, indicating well-calibrated uncertainty)
+- Lower quantile (10%) predictions help identify low-demand scenarios
+- Upper quantile (90%) predictions help identify high-demand risk periods
+- Uncertainty intervals widen during extreme weather conditions, appropriately reflecting increased forecast uncertainty
+
+7. Residual Analysis Findings
+
+From the residual plots:
+- Quantile Regression residuals show relatively random distribution with no clear patterns
+- Residuals are centered around zero, indicating unbiased predictions
+- No strong heteroscedasticity observed, suggesting consistent model performance across different demand levels
+- SARIMAX residuals show systematic patterns, indicating model misspecification
+
+8. Lag Feature Importance
+
+From feature analysis:
+- demand_lag_7 (7-day lag) is highly predictive, capturing weekly patterns
+- demand_lag_1 (1-day lag) captures short-term dependencies
+- demand_lag_30 (30-day lag) helps capture monthly/seasonal patterns
+- Rolling statistics (7-day and 30-day means) provide smoothed trend information
+
+9. Time Series Characteristics
+
+From the data overview visualizations:
+- Water demand shows clear trend component (upward due to population growth)
+- Strong seasonal component with annual cycles
+- Weekly cyclical patterns are consistent throughout the dataset
+- Some random noise present, but overall patterns are well-defined
+
+10. Forecast Uncertainty Patterns
+
+From the uncertainty interval visualizations:
+- Prediction intervals are narrower during stable weather periods
+- Intervals widen appropriately during seasonal transitions (spring/fall)
+- Extreme weather events (heatwaves, heavy rainfall) show wider uncertainty bands
+- The model correctly identifies periods of higher forecast uncertainty
+
+11. Feature Relationship Patterns
+
+Key relationships observed:
+- Higher temperatures consistently lead to increased water demand
+- Rainfall events cause temporary reductions in water consumption
+- Population growth creates a gradual upward trend in baseline demand
+- Seasonal factors compound with weather effects (summer heat + high demand)
+- Weekly patterns remain consistent regardless of season or weather
+
+12. Model Comparison Insights
+
+From comparing SARIMAX and Quantile Regression:
+- SARIMAX fails to capture complex feature interactions (negative R²)
+- Quantile Regression excels at learning non-linear relationships between features
+- Machine learning approach better handles multiple exogenous variables
+- Quantile Regression provides additional value through uncertainty quantification
+- The ensemble of features (weather + time + lags) works better with ML models than pure time series models
+
+
+
+

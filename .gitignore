@@ -1,0 +1,18 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Data and Models
+# Exclude entire folders by default
+data/plots/
+models/sarimax_model.pkl
+
+# Include specific small files that we DO want on GitHub
+!data/water_demand.csv
+!models/quantile_models.pkl
+!models/scaler.pkl
+
+# Other
+.DS_Store
+Thumbs.db
